@@ -4,21 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haslam Builders</title>
+    <title>Local Builders</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h1>Haslam Builders</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            <h1>Local Builders</h1>
         </div>
     </header>
     <main>
@@ -27,24 +21,73 @@
             <p>We bring your dream projects to life with quality and reliability.</p>
             <button id="learnMore">Learn More</button>
         </section>
+        <section id="services">
+            <h2>Our services</h2>
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="extensions">Extensions</button>
+                    <button class="tab-button" data-tab="new-kitchens">New Kitchens</button>
+                    <button class="tab-button" data-tab="flooring">Flooring</button>
+                    <button class="tab-button" data-tab="tiling">Tiling</button>
+                    <button class="tab-button" data-tab="summer-houses">Summer Houses</button>
+                </div>
+                <div class="tab-content">
+                    <div class="carousel active" id="extensions">
+                        <div class="carousel-inner">
+                            <img src="images/extension1.jpg" alt="Extension 1">
+                            <img src="images/extension2.jpg" alt="Extension 2">
+                            <img src="images/extension3.jpg" alt="Extension 3">
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                    <div class="carousel" id="new-kitchens">
+                        <div class="carousel-inner">
+                            <img src="images/kitchens1.jpg" alt="Kitchen 1">
+                            <img src="images/kitchens2.jpg" alt="Kitchen 2">
+                            <img src="images/kitchens3.jpg" alt="Kitchen 3">
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                    <div class="carousel" id="flooring">
+                        <div class="carousel-inner">
+                            <img src="images/flooring1.jpg" alt="Flooring 1">
+                            <img src="images/flooring2.jpg" alt="Flooring 2">
+                            <img src="images/flooring3.jpg" alt="Flooring 3">
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                    <div class="carousel" id="tiling">
+                        <div class="carousel-inner">
+                            <img src="images/tiles1.jpg" alt="Tiling 1">
+                            <img src="images/tiles2.jpg" alt="Tiling 2">
+                            <img src="images/tiles3.jpg" alt="Tiling 3">
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                    <div class="carousel" id="summer-houses">
+                        <div class="carousel-inner">
+                            <img src="images/summer-house1.jpg" alt="Summer House 1">
+                            <img src="images/summer-house2.jpg" alt="Summer House 2">
+                            <img src="images/summer-house3.jpg" alt="Summer House 3">
+                        </div>
+                        <button class="prev">&#10094;</button>
+                        <button class="next">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="about">
             <h2>About Us</h2>
             <p>With over 40 years of experience, we are committed to excellence in every project we undertake.</p>
         </section>
-        <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Extensions</li>
-                <li>New Kitchens</li>
-                <li>Flooring</li>
-                <li>Tiling</li>
-                <li>Summer Houses</li>
-            </ul>
-        </section>
     </main>
     <footer>
         <div class="container">
-            <p>© 2025 Haslam Builders All rights reserved.</p>
+            <p>© 2025 Local Builders All rights reserved.</p>
         </div>
     </footer>
     <script src="script.js"></script>
