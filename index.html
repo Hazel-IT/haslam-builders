@@ -9,6 +9,160 @@
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    header {
+        background: #333;
+        color: #fff;
+        padding: 10px 0;
+    }
+
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+
+    header nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #hero {
+        background: url('images/splash-image.jpg') no-repeat center center/cover;
+        color: #fff;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    #hero h2 {
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    #hero p {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    #hero button {
+        background: #ff9900;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    #about,
+    #services {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 20px auto;
+    }
+
+    footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .tab-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+    }
+
+    .tab-button {
+        padding: 10px 20px;
+        border: none;
+        background: #f4f4f4;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .tab-button.active {
+        background: #007BFF;
+        color: white;
+    }
+
+    .tab-content {
+        position: relative;
+    }
+
+    .carousel {
+        display: none;
+        position: relative;
+    }
+
+    .carousel.active {
+        display: block;
+    }
+
+    .carousel-inner {
+        display: flex;
+        overflow: hidden;
+    }
+
+    .carousel-inner img {
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    button.prev,
+    button.next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    button.prev {
+        left: 10px;
+    }
+
+    button.next {
+        right: 10px;
+    }
+</style>
+
 <body>
     <header>
         <div class="container">
@@ -92,5 +246,52 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
+<script>
+    document.getElementById('learnMore').addEventListener('click', () => {
+        alert('Thank you for your interest! Contact us for more information.');
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll(".tab-button");
+        const carousels = document.querySelectorAll(".carousel");
+        const tabContents = document.querySelector(".tab-content");
+
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", () => {
+                document.querySelector(".tab-button.active").classList.remove("active");
+                tab.classList.add("active");
+
+                const target = tab.getAttribute("data-tab");
+                carousels.forEach((carousel) => {
+                    carousel.classList.remove("active");
+                    if (carousel.id === target) {
+                        carousel.classList.add("active");
+                    }
+                });
+            });
+        });
+
+        tabContents.addEventListener("click", (e) => {
+            if (e.target.classList.contains("prev") || e.target.classList.contains("next")) {
+                const carousel = e.target.closest(".carousel");
+                const inner = carousel.querySelector(".carousel-inner");
+                const images = inner.querySelectorAll("img");
+                let index = Array.from(images).findIndex(
+                    (img) => img.offsetLeft === inner.scrollLeft
+                );
+
+                if (e.target.classList.contains("prev")) {
+                    index = (index - 1 + images.length) % images.length;
+                } else {
+                    index = (index + 1) % images.length;
+                }
+
+                inner.scrollLeft = images[index].offsetLeft;
+            }
+        });
+    });
+</script>
 
 </html>
